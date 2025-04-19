@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path d='M528.12 301.319l47.273-208A16 16 0 0 0 560 64H128L120.4 32.319A16 16 0 0 0 104.8 16H16A16 16 0 0 0 0 32v16a16 16 0 0 0 16 16h66.4l61.6 271.681a16 16 0 0 0 15.6 12.319h317.6a16 16 0 0 0 15.6-12.319zM504 448a56 56 0 1 0 56 56 56 56 0 0 0-56-56zm-320 0a56 56 0 1 0 56 56 56 56 0 0 0-56-56z'/></svg>"
+      type="image/svg+xml"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto mt-10">
+      <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">
+        Your Cart
+      </h1>
+      <div
+        id="cart-items"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+      ></div>
+      <div class="flex justify-center mt-10 gap-4">
+        <button
+          id="clear-cart"
+          class="px-6 py-3 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition-colors font-semibold"
+        >
+          Clear Cart
+        </button>
+        <button
+          id="continue-shopping"
+          class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-colors font-semibold"
+        >
+          Continue Shopping
+        </button>
+        <button
+          id="checkout"
+          class="px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition-colors font-semibold"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+    <script>
+      // Tailwind CSS cart display
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartItemsDiv = document.getElementById("cart-items");
+      if (cart.length === 0) {
+        cartItemsDiv.innerHTML = `
+          <div class="col-span-full text-center text-gray-500 py-16">
+            <i class="fa-regular fa-face-frown text-5xl mb-4"></i>
+            <p class="text-xl">Your cart is empty.</p>
+          </div>`;
+      } else {
+        cartItemsDiv.innerHTML = cart
+          .map(
+            (item) => `
+          <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center border border-gray-200">
+            <img src="${item.imageUrl}" class="w-32 h-32 object-cover rounded-lg mb-4 border border-gray-100" />
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">${item.title}</h3>
+            <div class="flex items-center gap-2 mb-2">
+              <label for="quantity-${item.id}" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                id="quantity-${item.id}"
+                min="1"
+                value="${item.quantity}"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+                data-id="${item.id}"
+              />
+            </div>
+            <button class="remove-item mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors" data-id="${item.id}">
+              Delete
+            </button>
+          </div>
+        `
+          )
+          .join("");
+      }
+      document.getElementById("continue-shopping").onclick = () => {
+        window.location.href = "index.html";
+      };
+
+      // Clear cart functionality
+      document.getElementById("clear-cart").onclick = function () {
+        localStorage.removeItem("cart");
+        location.reload();
+      };
+
+      // Remove item from cart functionality
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("remove-item")) {
+          const id = parseInt(e.target.getAttribute("data-id"));
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart = cart.filter((item) => item.id !== id);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          location.reload();
+        }
+      });
+
+      // Update quantity in cart
+      document.addEventListener("change", function (e) {
+        if (e.target.classList.contains("quantity-input")) {
+          const id = parseInt(e.target.getAttribute("data-id"));
+          const newQuantity = parseInt(e.target.value) || 1;
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const item = cart.find((item) => item.id === id);
+          if (item) {
+            item.quantity = newQuantity;
+            localStorage.setItem("cart", JSON.stringify(cart));
+          }
+        }
+      });
+
+      // Checkout functionality
+      document.getElementById("checkout").onclick = function () {
+        if (cart.length === 0) {
+          Swal.fire({
+            icon: "error",
+            title: "Empty Cart",
+            text: "Your cart is empty. Please add some products before checking out.",
+          });
+          return;
+        }
+
+        Swal.fire({
+          icon: "question",
+          title: "Confirm Checkout",
+          text: "Are you sure you want to proceed with the checkout?",
+          showCancelButton: true,
+          confirmButtonText: "Yes, Checkout",
+          cancelButtonText: "Cancel",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            localStorage.removeItem("cart");
+            Swal.fire({
+              icon: "success",
+              title: "Checkout Successful",
+              text: "Thank you for your purchase!",
+              timer: 2000,
+              showConfirmButton: false,
+            }).then(() => {
+              location.reload();
+            });
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

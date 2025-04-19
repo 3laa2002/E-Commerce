@@ -9,6 +9,15 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path d='M528.12 301.319l47.273-208A16 16 0 0 0 560 64H128L120.4 32.319A16 16 0 0 0 104.8 16H16A16 16 0 0 0 0 32v16a16 16 0 0 0 16 16h66.4l61.6 271.681a16 16 0 0 0 15.6 12.319h317.6a16 16 0 0 0 15.6-12.319zM504 448a56 56 0 1 0 56 56 56 56 0 0 0-56-56zm-320 0a56 56 0 1 0 56 56 56 56 0 0 0-56-56z'/></svg>"
+      type="image/svg+xml"
+    />
     <title>Shopping Cart | Home Page</title>
     <link rel="stylesheet" href="css/style.css" />
 
@@ -19,19 +28,22 @@
     <header class="sticky top-0 py-[10px] px-0">
       <div class="container w-[80%] mx-auto">
         <div class="header-content flex justify-between items-center">
-          <a href="index.html" class="brand text-3xl text-white"
-            >Shopping Cart</a
+          <a href="index.html" class="brand text-3xl text-white">
+            <i class="fa-solid fa-cart-shopping text-white"></i> Shopping
+            Cart</a
           >
+
           <nav>
             <ul id="links" class="flex">
               <li>
                 <a href="login.html" class="p-3 mr-1 rounded-3xl">Sign In</a>
               </li>
               <li>
-                <a href="register.html" class="bg-blue-600 p-3 ml-1 flex rounded-3xl"
+                <a
+                  href="register.html"
+                  class="bg-blue-600 p-3 ml-1 flex rounded-3xl"
                   >Sign Up</a
                 >
-                
               </li>
             </ul>
             <ul id="userInfo">
@@ -47,8 +59,520 @@
       </div>
     </header>
     <div class="container w-[80%] mx-auto">
-
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 object-cover rounded-md mb-4"
+            src="img/2.jpg"
+            alt="Camera Item"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">Camera Item</h2>
+            <p class="text-gray-600 mb-2">
+              Capture your moments with high-quality precision.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: large</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 object-cover rounded-md mb-4"
+            src="img/3.jpg"
+            alt="Laptop Item"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">Laptop Item</h2>
+            <p class="text-gray-600 mb-2">
+              Experience seamless performance for work and play.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: small</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 object-cover rounded-md mb-4"
+            src="img/4.jpg"
+            alt="Cares Item"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">Cares Item</h2>
+            <p class="text-gray-600 mb-2">
+              Premium care products for your daily needs.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: medium</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 object-cover rounded-md mb-4"
+            src="img/1.jpg"
+            alt="Tools Item"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">Tools Item</h2>
+            <p class="text-gray-600 mb-2">
+              Reliable tools for all your construction projects.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: large</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 rounded-md mb-4"
+            src="img/Iphone.jpg"
+            alt="iPhone 16 Pro Max"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">iPhone 16 Pro Max</h2>
+            <p class="text-gray-600 mb-2">
+              The latest iPhone with advanced features.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: 256GB</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 object-cover rounded-md mb-4"
+            src="img/samsung.jpg"
+            alt="Samsung S25 Ultra"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">Samsung S25 Ultra</h2>
+            <p class="text-gray-600 mb-2">
+              A powerful smartphone with cutting-edge technology.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: 512GB</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 object-cover rounded-md mb-4"
+            src="img/airpods.jpg"
+            alt="AirPods Pro"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">AirPods Pro</h2>
+            <p class="text-gray-600 mb-2">
+              Wireless earbuds with noise cancellation.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: Standard</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="product-item bg-white rounded-lg shadow-md p-4 border border-gray-200"
+        >
+          <img
+            class="product-item-img w-full h-48 rounded-md mb-4"
+            src="img/max.jpg"
+            alt="AirPods Max"
+          />
+          <div class="product-item-desc">
+            <h2 class="text-xl font-semibold mb-2">AirPods Max</h2>
+            <p class="text-gray-600 mb-2">
+              Over-ear headphones with spatial audio.
+            </p>
+            <span class="block text-gray-500 mb-4">Size: Standard</span>
+          </div>
+          <div class="product-item-actions flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-600">Qty:</label>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded-md text-center"
+              />
+            </div>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+            >
+              Add To Cart
+            </button>
+            <button class="favorite text-gray-400 hover:text-red-500 text-2xl">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- Cart Modal -->
+    <div
+      id="cart-modal"
+      class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300 hidden"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative border border-gray-200"
+      >
+        <button
+          id="close-cart-modal"
+          class="absolute top-3 right-3 text-3xl text-gray-400 hover:text-red-600 transition-colors"
+          aria-label="Close cart"
+        >
+          &times;
+        </button>
+        <h2
+          class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-cart-shopping text-blue-600"></i> Your Cart
+        </h2>
+        <div
+          id="cart-modal-items"
+          class="max-h-72 overflow-y-auto divide-y divide-gray-100 mb-6"
+        ></div>
+        <div class="flex justify-end gap-4">
+          <button
+            id="cart-modal-continue"
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-colors font-semibold"
+          >
+            Continue Shopping
+          </button>
+          <button
+            id="cart-modal-checkout"
+            class="px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition-colors font-semibold"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Cart Floating Button with Badge -->
+    <button
+      id="open-cart-modal"
+      class="fixed bottom-6 right-6 bg-blue-600 text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-700 z-50 flex items-center gap-2 transition-all"
+      aria-label="View Cart"
+    >
+      <i class="fa-solid fa-cart-shopping text-xl"></i>
+      <span>View Cart</span>
+      <span
+        id="cart-badge"
+        class="ml-2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5 hidden"
+      ></span>
+    </button>
+    <!-- Favourites Modal -->
+    <div
+      id="favourites-modal"
+      class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300 hidden"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative border border-gray-200"
+      >
+        <button
+          id="close-favourites-modal"
+          class="absolute top-3 right-3 text-3xl text-gray-400 hover:text-red-600 transition-colors"
+          aria-label="Close favourites"
+        >
+          &times;
+        </button>
+        <h2
+          class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-heart text-red-600"></i> Your Favourites
+        </h2>
+        <div
+          id="favourites-modal-items"
+          class="max-h-72 overflow-y-auto divide-y divide-gray-100 mb-6"
+        ></div>
+        <div class="flex justify-end">
+          <button
+            id="favourites-modal-continue"
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-colors font-semibold"
+          >
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Favourites Floating Button -->
+    <button
+      id="open-favourites-modal"
+      class="fixed bottom-20 right-6 bg-red-600 text-white px-6 py-3 rounded-full shadow-xl hover:bg-red-700 z-50 flex items-center gap-2 transition-all"
+      aria-label="View Favourites"
+    >
+      <i class="fa-solid fa-heart text-xl"></i>
+      <span>View Favourites</span>
+    </button>
     <script src="js/script.js"></script>
+    <script>
+      // Update cart badge
+      function updateCartBadge() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const badge = document.getElementById("cart-badge");
+        const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        if (count > 0) {
+          badge.textContent = count;
+          badge.classList.remove("hidden");
+        } else {
+          badge.classList.add("hidden");
+        }
+      }
+      updateCartBadge();
+
+      // Show cart modal
+      document.getElementById("open-cart-modal").onclick = function () {
+        // Load cart items
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartItemsDiv = document.getElementById("cart-modal-items");
+        if (cart.length === 0) {
+          cartItemsDiv.innerHTML = `
+            <div class="text-center text-gray-500 py-8">
+              <i class="fa-regular fa-face-frown text-4xl mb-2"></i>
+              <p class="text-lg">Your cart is empty.</p>
+            </div>`;
+        } else {
+          cartItemsDiv.innerHTML = cart
+            .map(
+              (item) => `
+            <div class="flex items-center gap-4 py-4">
+              <img src="${item.imageUrl}" class="w-16 h-16 object-cover rounded-lg border border-gray-200" />
+              <div class="flex-1">
+                <h3 class="text-base font-semibold text-gray-800">${item.title}</h3>
+                <span class="block text-sm text-gray-500">Quantity: ${item.quantity}</span>
+              </div>
+            </div>
+          `
+            )
+            .join("");
+        }
+        document.getElementById("cart-modal").classList.remove("hidden");
+      };
+      // Hide cart modal
+      document.getElementById("close-cart-modal").onclick = function () {
+        document.getElementById("cart-modal").classList.add("hidden");
+      };
+      document.getElementById("cart-modal-continue").onclick = function () {
+        document.getElementById("cart-modal").classList.add("hidden");
+      };
+
+      // Checkout functionality
+      document.getElementById("cart-modal-checkout").onclick = function () {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cart.length === 0) {
+          Swal.fire({
+            icon: "error",
+            title: "Empty Cart",
+            text: "Your cart is empty. Please add some products before checking out.",
+          });
+          return;
+        }
+
+        Swal.fire({
+          icon: "question",
+          title: "Confirm Checkout",
+          text: "Are you sure you want to proceed with the checkout?",
+          showCancelButton: true,
+          confirmButtonText: "Yes, Checkout",
+          cancelButtonText: "Cancel",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            localStorage.removeItem("cart");
+            Swal.fire({
+              icon: "success",
+              title: "Checkout Successful",
+              text: "Thank you for your purchase!",
+              timer: 2000,
+              showConfirmButton: false,
+            }).then(() => {
+              document.getElementById("cart-modal").classList.add("hidden");
+              updateCartBadge();
+            });
+          }
+        });
+      };
+
+      // Update badge on cart changes
+      window.addEventListener("storage", function (e) {
+        if (e.key === "cart") updateCartBadge();
+      });
+      // Also update after add-to-cart
+      document.addEventListener("cart-updated", updateCartBadge);
+
+      // Show favourites modal
+      document.getElementById("open-favourites-modal").onclick = function () {
+        const favourites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const favouritesItemsDiv = document.getElementById(
+          "favourites-modal-items"
+        );
+        if (favourites.length === 0) {
+          favouritesItemsDiv.innerHTML = `
+            <div class="text-center text-gray-500 py-8">
+              <i class="fa-regular fa-face-frown text-4xl mb-2"></i>
+              <p class="text-lg">No favourites yet.</p>
+            </div>`;
+        } else {
+          favouritesItemsDiv.innerHTML = favourites
+            .map(
+              (item) => `
+            <div class="flex items-center gap-4 py-4">
+              <img src="${item.imageUrl}" class="w-16 h-16 object-cover rounded-lg border border-gray-200" />
+              <div class="flex-1">
+                <h3 class="text-base font-semibold text-gray-800">${item.title}</h3>
+                <span class="block text-sm text-gray-500">Size: ${item.size}</span>
+              </div>
+            </div>
+          `
+            )
+            .join("");
+        }
+        document.getElementById("favourites-modal").classList.remove("hidden");
+      };
+
+      // Hide favourites modal
+      document.getElementById("close-favourites-modal").onclick = function () {
+        document.getElementById("favourites-modal").classList.add("hidden");
+      };
+      document.getElementById("favourites-modal-continue").onclick =
+        function () {
+          document.getElementById("favourites-modal").classList.add("hidden");
+        };
+    </script>
   </body>
 </html>

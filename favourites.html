@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Favourites</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path d='M528.12 301.319l47.273-208A16 16 0 0 0 560 64H128L120.4 32.319A16 16 0 0 0 104.8 16H16A16 16 0 0 0 0 32v16a16 16 0 0 0 16 16h66.4l61.6 271.681a16 16 0 0 0 15.6 12.319h317.6a16 16 0 0 0 15.6-12.319zM504 448a56 56 0 1 0 56 56 56 56 0 0 0-56-56zm-320 0a56 56 0 1 0 56 56 56 56 0 0 0-56-56z'/></svg>"
+      type="image/svg+xml"
+    />
+  </head>
+  <body>
+    <div class="container mx-auto mt-10">
+      <h1 class="text-3xl font-bold mb-6">Your Favourites</h1>
+      <div id="fav-items"></div>
+      <div class="flex justify-center mt-10 gap-4">
+        <button
+          id="clear-favourites"
+          class="px-6 py-3 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition-colors font-semibold"
+        >
+          Clear Favourites
+        </button>
+        <button
+          id="continue-shopping"
+          class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-colors font-semibold"
+        >
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+    <script>
+      // Simple favorites display
+      const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+      const favItemsDiv = document.getElementById("fav-items");
+      if (favs.length === 0) {
+        favItemsDiv.innerHTML = "<p>No favourites yet.</p>";
+      } else {
+        favItemsDiv.innerHTML = favs
+          .map(
+            (item) => `
+        <div class="flex items-center border-b py-4">
+          <img src="${item.imageUrl}" class="w-24 h-24 object-cover rounded mr-4" />
+          <div>
+            <h3 class="text-lg font-semibold">${item.title}</h3>
+            <span>Size: ${item.size}</span>
+          </div>
+          <button
+            class="remove-fav-item ml-auto px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+            data-id="${item.id}"
+          >
+            Delete
+          </button>
+        </div>
+      `
+          )
+          .join("");
+      }
+      document.getElementById("continue-shopping").onclick = () => {
+        window.location.href = "index.html";
+      };
+
+      // Clear favourites functionality
+      document.getElementById("clear-favourites").onclick = function () {
+        localStorage.removeItem("favorites");
+        location.reload();
+      };
+
+      // Remove item from favourites functionality
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("remove-fav-item")) {
+          const id = parseInt(e.target.getAttribute("data-id"));
+          let favs = JSON.parse(localStorage.getItem("favorites")) || [];
+          favs = favs.filter((item) => item.id !== id);
+          localStorage.setItem("favorites", JSON.stringify(favs));
+          location.reload();
+        }
+      });
+    </script>
+  </body>
+</html>
