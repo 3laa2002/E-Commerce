@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
         title: "Added to Cart",
         text: `${product.title} (x${quantity}) has been added to your cart!`,
         showConfirmButton: false,
-        timer: 1200,
+        timer: 1800,
       });
     });
   });
